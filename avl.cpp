@@ -241,6 +241,7 @@ class Tree
             currentNode->height = height_left > height_right ? height_left : height_right;
             currentNode->height++;
             
+            root = currentNode;
             currentNode = currentNode->parent;
         } while (currentNode);
     }
