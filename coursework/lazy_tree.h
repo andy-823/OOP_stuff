@@ -97,8 +97,6 @@ void lazy_tree<T, ResT>::update_and_mark_element(std::size_t index)
         ResT res = this->argument_res_function(this->original_array[i]);
         result = this->res_function(result, res);
     }
-    // std::cout << "updated from " << this->tree[index].left << " to " << this->tree[index].right << "\n";
-    // std::cout << "have the value: " << result << "\n";
     
     this->tree[index].value = result;
     this->tree[index].correct = true;
