@@ -79,7 +79,7 @@ void check_the_flash()
 
 	if (start_file_size < min_file_size)
 	{
-		cout << "Start file will size of one cluster as it is smaller\n";
+		cout << "Start file will have size of one cluster as it is smaller\n";
 		start_file_size = min_file_size;
 	}
 
