@@ -1,0 +1,8 @@
+It can be called group project.
+Its idea is to write files of minimal size to cover damaged blocks on flash.
+Program creates something like tree and writes files of start file size.
+Folder tree was created because flash starts lagging when there are many files in directory.
+After no empty space left it compares written files to what had to be written.
+If written file is incorrect, program replaces it with smaller files, and so on.
+
+Now it doesn't work correctly, but you can test it:).
