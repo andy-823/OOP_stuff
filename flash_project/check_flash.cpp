@@ -1,4 +1,6 @@
+//#include "c:\name\cpp_projects\flash_project\check_flash.h"
 #include "check_flash.h"
+
 
 #include <queue>
 #include <string>
@@ -79,7 +81,7 @@ void check_the_flash()
 
 	if (start_file_size < min_file_size)
 	{
-		cout << "Start file will have size of one cluster as it is smaller\n";
+		cout << "Start file will size of one cluster as it is smaller\n";
 		start_file_size = min_file_size;
 	}
 
@@ -388,16 +390,8 @@ bool check_file(file& file)
 
 void clear_console()
 {
-// #if defined _WIN32
+	cout << std::flush;
 	system("clear");
-    //system("cls");
-    //std::clrscr(); // including header file : conio.h
-// #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-//     //system("clear");
-// 	std::cout<< u8"\033[2J\033[1;1H"; //Using ANSI Escape Sequences 
-// #elif defined (__APPLE__)
-//     system("clear");
-// #endif
 }
 
 
