@@ -1,7 +1,6 @@
 //#include "c:\name\cpp_projects\flash_project\check_flash.h"
 #include "check_flash.h"
 
-
 #include <queue>
 #include <string>
 #include <filesystem>
@@ -81,7 +80,7 @@ void check_the_flash()
 
 	if (start_file_size < min_file_size)
 	{
-		cout << "Start file will size of one cluster as it is smaller\n";
+		cout << "Start file will have size of one cluster as it is smaller\n";
 		start_file_size = min_file_size;
 	}
 
@@ -397,16 +396,19 @@ void clear_console()
 
 int main()
 {
-	cout << "Flash desructor program is greeting you\n";
-	cout << "To exit enter exit\n\n";
-	cout << "Enter flash drive path\n";
-
 	bool to_continue = true, to_finish = false;
-	string value_got;
+	string value_got, message = "";
 
 	// after this cycle we get correct flash driver path
 	while (to_continue && !to_finish)
 	{
+		clear_console();
+
+		cout << "Flash desructor program is greeting you\n";
+		cout << "To exit enter exit\n\n";
+		cout << message;
+		cout << "Enter flash drive path\n";
+
 		cin >> value_got;
 		if (value_got == "exit")
 		{
@@ -420,7 +422,7 @@ int main()
 				// other types of drives can't pass this check
 				if (GetDriveTypeA(value_got.c_str()) != 2)
 				{ 
-					cout << "This disk is not a flash drive\n";
+					message = "Disk " + value_got + " is not a flash drive\n\n";
 				}
 				else
 				{
@@ -429,8 +431,8 @@ int main()
 			}
 			else
 			{
-				cout << "The flash driver " << value_got << " wasn't found\n";
-				cout << "Make sure you don't use it and didn't miss \\\\\n"; // looks scary
+				message = "The flash drive " + value_got + " wasn't found\n";
+				message += "Make sure you don't use it and didn't miss \\\\\n\n"; // looks scary
 			}
 		}
 	}
