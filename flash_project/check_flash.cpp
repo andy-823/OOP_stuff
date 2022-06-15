@@ -1,5 +1,5 @@
-//#include "c:\name\cpp_projects\flash_project\check_flash.h"
-#include "check_flash.h"
+#include "c:\name\cpp_projects\flash_project\check_flash.h"
+//#include "check_flash.h"
 
 #include <queue>
 #include <string>
@@ -73,8 +73,8 @@ void check_the_flash()
 
 	// used DWORD64 because DWORD can cover about 500mb, flash can easily have more free memory 
 	// 1 cluster is big enough (usually more than 1kb) so we don't need to worry about overflow
-	DWORD64	free_space = BytesPerSector * SectorsPerCluster * NumberOfFreeClusters,
-			min_file_size = BytesPerSector * SectorsPerCluster; // size of 1 cluster, can't be less
+	DWORD64	free_space = (DWORD64)BytesPerSector * (DWORD64)SectorsPerCluster * (DWORD64)NumberOfFreeClusters,
+			min_file_size = (DWORD64)BytesPerSector * (DWORD64)SectorsPerCluster; // size of 1 cluster, can't be less
 	cout << "Calculated free space: " << free_space << " bytes\n";
 	cout << "Calculated size of one cluster: " << min_file_size << " bytes\n\n";
 
@@ -226,7 +226,7 @@ void write_files(const vector<string>& folders_to_write, DWORD64 file_size, queu
 		(LPDWORD)&BytesPerSector,
 		(LPDWORD)&NumberOfFreeClusters,
 		(LPDWORD)&TotalNumberOfClusters);
-	DWORD64 free_space = BytesPerSector * SectorsPerCluster * NumberOfFreeClusters,
+	DWORD64 free_space = (DWORD64)BytesPerSector * (DWORD64)SectorsPerCluster * (DWORD64)NumberOfFreeClusters,
 			start_free_space = free_space;
 
 	int64_t idx = 0;
@@ -268,7 +268,7 @@ void write_files(const vector<string>& folders_to_write, DWORD64 file_size, queu
 				(LPDWORD)&BytesPerSector,
 				(LPDWORD)&NumberOfFreeClusters,
 				(LPDWORD)&TotalNumberOfClusters);
-			free_space = BytesPerSector * SectorsPerCluster * NumberOfFreeClusters;
+			free_space = (DWORD64)BytesPerSector * (DWORD64)SectorsPerCluster * (DWORD64)NumberOfFreeClusters;
 
 			clear_console();
 			cout << "Writing files on flash drive...\n\n";
