@@ -1,4 +1,5 @@
-It can be called group project (this code is a result of group work).
+It can be called group project (this code is a result of group work, original repo is private).
+
 Its idea is to write files of minimal size to cover damaged blocks on flash.
 Program creates something like tree and writes files of start file size.
 Folder tree was created because flash starts lagging when there are many files in directory.
